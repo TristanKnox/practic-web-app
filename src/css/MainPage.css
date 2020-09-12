@@ -1,0 +1,49 @@
+.MainPage{
+    position: absolute;
+    background-color: #222222;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+h1{
+    left: 50%;
+    margin-top: 0;
+}
+.text{
+    text-align: center;
+    font-family: Serif;
+    color: bisque;
+}
+
+/*.cycle-box{*/
+/*    position: absolute;*/
+/*    top: 40px;*/
+/*}*/
+
+.imgContainer{
+    position: absolute;
+    left: calc(50% -  100%*.6/2);
+    z-index: 0;
+    max-height: fit-content;
+    max-width: fit-content;
+}
+
+.img{
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    border-radius: 20px;
+}
+.transparent{
+
+}
+
+
+.centered{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+

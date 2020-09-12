@@ -1,0 +1,37 @@
+.modal{
+    position: absolute;
+    top: 0;
+    z-index: 900;
+    background-color: rgba(22,22,22,.8);
+    height: 100%;
+    width: 100%;
+}
+
+.modal-box{
+    padding: 20px;
+    position: absolute;
+    z-index: 990;
+    width: 400px;
+    height: 550px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    background-color: white;
+    border-radius: 20px;
+    animation-name: modal-in;
+    /*animation-delay: s;*/
+    animation-duration: 1s;
+
+}
+
+.modal-box.position{
+    position: relative;
+
+}
+
+@keyframes modal-in{
+    0%{top: 100%}
+    60%{top: 40%}
+    100%{top: 50%; transform: translateX(-50) translateY(-50%)}
+}
+
