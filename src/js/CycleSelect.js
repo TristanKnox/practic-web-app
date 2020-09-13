@@ -6,10 +6,6 @@ import '../css/CycleSelect.css'
 class CycleSelect extends Component{
 
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <div className="content-box cycle-box centered">
