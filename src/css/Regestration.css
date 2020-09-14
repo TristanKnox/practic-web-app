@@ -1,0 +1,80 @@
+.regestration{
+    position: absolute;
+    overflow-y: hidden;
+    top: 0;
+    z-index: 900;
+    /*background-color: rgba(22,22,22,.8);*/
+    height: 100%;
+    width: 100%;
+}
+/*.modal-background{*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    z-index: 989;*/
+/*    background-color: rgba(22,22,22,.8);*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*}*/
+
+.regestration-box{
+    padding: 30px;
+    position: absolute;
+    z-index: 990;
+    width: fit-content;
+    height: fit-content;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    background-color: white;
+    border-radius: 20px;
+    animation-name: regestration-in;
+    /*animation-delay: s;*/
+    animation-duration: 1s;
+}
+.key-vlaue-box{
+    display: flex;
+    width: fit-content;
+}
+
+.key{
+    width: 150px;
+    display: inline-block;
+    float: left;
+    padding-right: 15px;
+    text-align: right;
+}
+.value{
+    width: 200px;
+    display:inline-block;
+    float: left;
+    text-align: left;
+}
+.regestration-img{
+    display: inline-block;
+    max-width: 300px;
+
+}
+.regestriation-text{
+    font-family: Serif;
+}
+
+.center-vert{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.regestration-button-box{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+.button-edit{
+    margin-left: 40px;
+}
+
+@keyframes regestration-in{
+    0%{left: 100%}
+    60%{left: 40%}
+    100%{left: 50%; transform: translateX(-50) translateY(-50%)}
+}

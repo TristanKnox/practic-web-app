@@ -1,5 +1,6 @@
 .modal{
     position: absolute;
+    overflow-y: hidden;
     top: 0;
     z-index: 900;
     /*background-color: rgba(22,22,22,.8);*/
@@ -42,12 +43,27 @@ form input{
     background-color: #fff;
     border: 1px solid black;
 }
+.input-box{
+    /*display: block;*/
+}
+.inline{
+    display: inline-block;
+}
 input{
     float: left;
     width: calc(100% - 200px);
 }
+.radio{
+    color: blue;
+    width: 20px;
+    /*float: right;*/
+    margin: 3px;
+}
+.radio-box{
+    width: 100px;
+    height: fit-content;
+}
 label{
-    display: inline-block;
     /*float: left;*/
     width: 200px;
     padding-right: 24px;
@@ -91,6 +107,8 @@ button:hover{
     position: relative;
 
 }
+
+
 
 @keyframes modal-in{
     0%{top: 100%}
