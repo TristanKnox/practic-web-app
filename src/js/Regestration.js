@@ -21,6 +21,7 @@ class Regestration extends Component{
             img: this.props.data.img
         }
         this.submit = this.submit.bind(this)
+        this.edit = this.edit.bind(this)
     }
     render() {
         return(
@@ -60,7 +61,7 @@ class Regestration extends Component{
 
                     { this.state.isEditable && <div className='regestration-button-box'>
                         <button onClick={this.submit}>Submit</button>
-                        {this.state.isEditable && <button className='button-edit'>Edit</button>}
+                        {this.state.isEditable && <button className='button-edit' onClick={this.edit}>Edit</button>}
                     </div>}
                 </div>
                 {this.state.isModalView && <div className='modal-background' onClick={this.props.btnCallback}/>}
@@ -71,12 +72,16 @@ class Regestration extends Component{
     }
 
     submit(){
-        let formData = {}
-        for(let key in this.state){
-            if(key !== 'isEditable' && key !== 'isModalView')
-                formData[key] = this.state[key]
-        }
-        this.props.btnCallback(formData)
+        // let formData = {}
+        // for(let key in this.state){
+        //     if(key !== 'isEditable' && key !== 'isModalView')
+        //         formData[key] = this.state[key]
+        // }
+        // this.props.btnCallback(formData)
+        this.props.btnCallback('submit')
+    }
+    edit(){
+        this.props.btnCallback('edit')
     }
 }
 

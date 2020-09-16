@@ -12,6 +12,7 @@ import Regestration from "./Regestration";
              formData: this.props.location.state.formData
          }
          this.submit = this.submit.bind(this)
+         this.callBack = this.callBack.bind(this)
      }
      render() {
          console.log("SuccessPage")
@@ -21,7 +22,7 @@ import Regestration from "./Regestration";
                  <h1 className='text'>Victory</h1>
                  <p className='text'>You have completed the form</p>
                  <p className='text'>Please review your selections before finalizing your decisions</p>
-                 <Regestration data={this.state.formData} isModalView={false} isEditable={true} button={this.button} btnCallback={this.submit}/>
+                 <Regestration data={this.state.formData} isModalView={false} isEditable={true} button={this.button} btnCallback={this.callBack}/>
              </div>
 
          );
@@ -38,6 +39,20 @@ import Regestration from "./Regestration";
          regsList.push(regestrationData)
          localStorage.setItem('regsList',JSON.stringify(regsList))
          this.props.history.push('/')
+     }
+     callBack(action){
+         if(action === 'edit') {
+             console.log("edit")
+             this.props.history.push({pathname:'/',state:{formData:this.state.formData, editForm:true}})
+         }
+         if(action === 'submit') {
+             console.log('submit')
+             let regsList = JSON.parse(localStorage.getItem('regsList'))
+             regsList.push(this.state.formData)
+             localStorage.setItem('regsList',JSON.stringify(regsList))
+             this.props.history.push('/')
+
+         }
      }
  }
 

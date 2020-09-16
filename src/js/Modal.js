@@ -5,19 +5,23 @@ class Modal extends Component {
 
     constructor(props) {
         super(props);
+        // let img = this.props.img
+        // if(this.props.formData.img)
+        //     img = this.props.formData.img
         this.state = {
             formValid:false,
-            fName:undefined,
-            lName:undefined,
-            address: undefined,
-            city:undefined,
-            state:undefined,
-            zip:undefined,
-            email:undefined,
-            phoneNumber:undefined,
-            paymentMethod:undefined,
+            fName:this.props.formData.fName,
+            lName:this.props.formData.lName,
+            address: this.props.formData.address,
+            city:this.props.formData.city,
+            state:this.props.formData.state,
+            zip:this.props.formData.zip,
+            email:this.props.formData.email,
+            phoneNumber:this.props.formData.phoneNumber,
+            paymentMethod:this.props.formData.paymentMethod,
             img:this.props.img
         }
+
         this.changeHandler = this.changeHandler.bind(this)
         this.isFormValid = this.isFormValid.bind(this)
         this.submit = this.submit.bind(this)
@@ -34,36 +38,36 @@ class Modal extends Component {
                         <form>
                             <div className='input-box'>
                                 <label htmlFor='fName' className='inline' >First Name</label>
-                                <input id={'fName'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'fName'} value={this.props.formData.fName} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'lName'} className='inline'>Last Name</label>
-                                <input id={'lName'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'lName'} value={this.props.formData.lName} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
 
                             <div>
                                 <label htmlFor={'address'} className='inline'>Street address</label>
-                                <input id={'address'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'address'} value={this.props.formData.address} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'city'} className='inline'>City</label>
-                                <input id={'city'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'city'} value={this.props.formData.city} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'state'} className='inline'>State</label>
-                                <input id={'state'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'state'} value={this.props.formData.state} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'zip'} className='inline'>Zipcode</label>
-                                <input id={'zip'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'zip'} value={this.props.formData.zip} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'email'} className='inline'>email</label>
-                                <input id={'email'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'email'} value={this.props.formData.email} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'phoneNumber'} className='inline'>Phone Number</label>
-                                <input id={'phoneNumber'} className='inline' type={'text'} onChange={this.changeHandler}/>
+                                <input id={'phoneNumber'}value={this.props.formData.phoneNumber} className='inline' type={'text'} onChange={this.changeHandler}/>
                             </div>
                             <div>
                                 <label htmlFor={'PaymentMethod:'} style={{display: 'block'}} >Payment Method</label>
@@ -85,7 +89,7 @@ class Modal extends Component {
 
                     </div>
                     <div className={'modal-button-box'}>
-                        <button className={'submit'} onClick={this.submit} disabled={!this.state.formValid && false}>Submit</button>
+                        <button className={'submit'} onClick={this.submit} disabled={!this.state.formValid}>Submit</button>
                         <button className={'cancel'} onClick={this.props.closeModal}>Cancel</button>
                     </div>
                 </div>
@@ -93,6 +97,8 @@ class Modal extends Component {
             </div>
         );
     }
+
+
     changeHandler = (event) =>{
         let validator = this.getValidator(event.target.id)
         let isValid = validator(event.target.value)
@@ -239,6 +245,13 @@ class Modal extends Component {
         return true
     }
     componentDidMount() {
+        console.log("Did mount")
+        let item
+        // for (item in this.props.formData){
+        //     console.log(item)
+        // }
+
+        // this.setState({fName:"Test"})
         console.log("Component has changed")
         console.log(this.state)
     }

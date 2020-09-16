@@ -27,16 +27,35 @@ class MainPage extends Component {
     constructor(props) {
         super(props);
         console.log('NewMain')
-        console.log(this.props.addRegistration)
         let images = [River,GreenForest,Mountain,FogyForset,SnowCaps,CristalClear,RelectedMnt,Lightning];
+        let formData = undefined
+        let showModal = false
+        let modalImg = images[0]
+        if(this.props.location.state) {
+            formData = this.props.location.state.formData
+            showModal = this.props.location.state.editForm
+            if(this.props.location.state.formData)
+                modalImg = this.props.location.state.formData.img
+        }
+        // console.log(formData)
+
+        // if(this.props.location.state.editForm)
+        //     showModal = true
+        if(!formData) {
+            formData = {
+                fName: undefined
+            }
+        }
         this.state = {
-            width:0,
-            height:0,
+            width: 0,
+            height: 0,
             images: images,
             imgIndex: 0,
             currentImg: images[0],
-            showModal: false,
-            reges: [1,2]
+            showModal: showModal,
+            reges: [1, 2],
+            formData: formData,
+            modalImg: modalImg
         };
 
         this.getNextImage = this.getNextImage.bind(this)
@@ -48,6 +67,7 @@ class MainPage extends Component {
         this.display = this.display.bind(this)
 
         this.submitForm = this.submitForm.bind(this)
+        this.edit = this.edit.bind(this)
         this.addRegestration = this.addRegestration.bind(this)
         // this.addRegestration(props.location.state.regestration)
 
@@ -65,7 +85,7 @@ class MainPage extends Component {
                     </div>
 
                 </div>
-                {this.state.showModal && <Modal closeModal={this.toggleModal} submitForm={this.submitForm} img={this.state.currentImg} />}
+                {this.state.showModal && <Modal formData={this.state.formData} closeModal={this.toggleModal} submitForm={this.submitForm} img={this.state.modalImg} />}
             </div>
             // <div className='MainPage'>
             //     <RegistrationThumbnail img={this.state.currentImg} title={"Tristan Knox"} street={'888 tom rd'} state={'NY'} city={'Trumansburg'} />
@@ -77,14 +97,14 @@ class MainPage extends Component {
         if(index >= this.state.images.length)
             index = 0
         let image = this.state.images[index]
-        this.setState({imgIndex: index, currentImg: image})
+        this.setState({imgIndex: index, currentImg: image, modalImg: image})
     }
     getPrevImage(){
         let index = this.state.imgIndex - 1
         if(index <0)
             index = this.state.images.length-1
         let image = this.state.images[index]
-        this.setState({imgIndex: index, currentImg: image})
+        this.setState({imgIndex: index, currentImg: image, modalImg: image})
     }
     componentDidMount() {
         this.updateWindowDims();
@@ -104,7 +124,11 @@ class MainPage extends Component {
 
     submitForm(formData){
         // this.storeRegs()
+        console.log("Main Submit")
         this.props.history.push({pathname:'/success',state:{formData:formData}})
+    }
+    edit(formData){
+        this.setState({formData:formData, showModal:true})
     }
 
     saveStateToLocalStorage() {

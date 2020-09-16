@@ -28,31 +28,34 @@ export default class Routes extends Component {
             // <Router>
             <main>
                 <Switch>
-                    <Route
-                        addRegistration={"this.props.addRegistration"}
-                        path="/" exact
-                        render={(props) => <MainPage {...props} addRegistration={this.addRegs}/>}
+                    <Route path='/' exact component={MainPage}/>
+                    <Route path='/success' component={Succsess}/>
+                    <Route path='/RegistrationList' component={RegistrationList}/>
+                    {/*<Route*/}
+                    {/*    addRegistration={"this.props.addRegistration"}*/}
+                    {/*    path="/" exact*/}
+                    {/*    render={(props) => <MainPage {...props} addRegistration={this.addRegs}/>}*/}
 
-                        // getEditableData={this.props.getEditableData()}
-                        // pushEditableData={this.props.pushEditableData()}
-                        // editData={editeData}
-                    />
-                    <Route
-                        path="/success"
-                        render={(props) => <Succsess {...props} addRegistration={this.addRegs}/>}
-                        // addRegistration={"popycock"}
-                        // getEditableData={this.props.getEditableData()}
-                        // pushEditableData={this.props.pushEditableData()}
-                    />
-                    <Route
-                        path="/RegistrationList"
-                        render={(props) => <RegistrationList {...props}/>}
-                        // addRegistration={this.props.addRegistration}
-                        // getEditableData={this.props.getEditableData}
-                        // pushEditableData={this.props.pushEditableData}
-                        // regsList={this.props.regsList}
-                    />
-                    <Route path="/RegistrationList/Registration" component={Registration} />
+                    {/*    // getEditableData={this.props.getEditableData()}*/}
+                    {/*    // pushEditableData={this.props.pushEditableData()}*/}
+                    {/*    // editData={editeData}*/}
+                    {/*/>*/}
+                    {/*<Route*/}
+                    {/*    path="/success"*/}
+                    {/*    render={(props) => <Succsess {...props} addRegistration={this.addRegs}/>}*/}
+                    {/*    // addRegistration={"popycock"}*/}
+                    {/*    // getEditableData={this.props.getEditableData()}*/}
+                    {/*    // pushEditableData={this.props.pushEditableData()}*/}
+                    {/*/>*/}
+                    {/*<Route*/}
+                    {/*    path="/RegistrationList"*/}
+                    {/*    render={(props) => <RegistrationList {...props}/>}*/}
+                    {/*    // addRegistration={this.props.addRegistration}*/}
+                    {/*    // getEditableData={this.props.getEditableData}*/}
+                    {/*    // pushEditableData={this.props.pushEditableData}*/}
+                    {/*    // regsList={this.props.regsList}*/}
+                    {/*/>*/}
+                    {/*<Route path="/RegistrationList/Registration" component={Registration} />*/}
                 </Switch>
             </main>
             // {/*</Router>*/}
