@@ -1,7 +1,7 @@
 .thumbnail-box{
     display: flex;
     position: relative;
-    background-color: white;
+    background-color: azure;
     border-width: 1px;
     border-color: #222222;
     border: solid;
@@ -9,7 +9,12 @@
     width: 350px;
     height: 50px;
     margin-top: 5px;
+    margin-bottom: 5px;
     padding: 10px;
+}
+.thumbnail-box:hover{
+    background-color: white;
+    box-shadow: 5px 5px  rgba(400,400,400, 0.5);
 }
 
 .thumb-img{
