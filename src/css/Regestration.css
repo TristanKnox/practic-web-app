@@ -87,6 +87,6 @@
     padding-bottom: 25px;
     margin-left: 50px;
     padding-left: 50px;
-    height: 100%;
+    height: calc(100% - 100px);
 
 }
