@@ -18,6 +18,7 @@ import NaveBar from "./NaveBar";
 import Modal from "./Modal";
 import {Link} from "react-router-dom";
 import Routs from "./Routs";
+import RegistrationThumbnail from "./RegistrationThumbnail";
 
 class MainPage extends Component {
     // width = 100;
@@ -26,7 +27,7 @@ class MainPage extends Component {
     constructor(props) {
         super(props);
         console.log('NewMain')
-        // console.log(this.props.location.state.regestration)
+        console.log(this.props.addRegistration)
         let images = [River,GreenForest,Mountain,FogyForset,SnowCaps,CristalClear,RelectedMnt,Lightning];
         this.state = {
             width:0,
@@ -48,7 +49,7 @@ class MainPage extends Component {
 
         this.submitForm = this.submitForm.bind(this)
         this.addRegestration = this.addRegestration.bind(this)
-        this.addRegestration(props.location.state.regestration)
+        // this.addRegestration(props.location.state.regestration)
 
     }
     render() {
@@ -66,6 +67,9 @@ class MainPage extends Component {
                 </div>
                 {this.state.showModal && <Modal closeModal={this.toggleModal} submitForm={this.submitForm} img={this.state.currentImg} />}
             </div>
+            // <div className='MainPage'>
+            //     <RegistrationThumbnail img={this.state.currentImg} title={"Tristan Knox"} street={'888 tom rd'} state={'NY'} city={'Trumansburg'} />
+            // </div>
         );
     }
     getNextImage(){

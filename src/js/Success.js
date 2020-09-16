@@ -6,6 +6,8 @@ import Regestration from "./Regestration";
  class Success extends Component{
      constructor(props) {
          super(props);
+         console.log("SUCCESSS*************************************")
+         console.log(this.props.addRegistration)
          this.state = {
              formData: this.props.location.state.formData
          }
@@ -32,17 +34,10 @@ import Regestration from "./Regestration";
      }
      submit(regestrationData) {
          console.log("Subbmitting")
-         // console.log(regestrationData)
-         // let regs = localStorage.getItem('regs')
-         // console.log(regs.items)
-         // if (regs.items === undefined) {
-         //    regs = []
-         //     regs[0] = regestrationData
-         // }
-         // console.log(regs)
-         // localStorage.setItem('regs',regs)
-         // console.log(localStorage.getItem('regs'))
-         this.props.history.push({pathname:'/',state:{regestration:regestrationData}})
+         let regsList = JSON.parse(localStorage.getItem('regsList'))
+         regsList.push(regestrationData)
+         localStorage.setItem('regsList',JSON.stringify(regsList))
+         this.props.history.push('/')
      }
  }
 

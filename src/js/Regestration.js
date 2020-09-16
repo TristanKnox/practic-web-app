@@ -63,7 +63,7 @@ class Regestration extends Component{
                         {this.state.isEditable && <button className='button-edit'>Edit</button>}
                     </div>}
                 </div>
-                {this.state.isModalView && <div className='modal-background'/>}
+                {this.state.isModalView && <div className='modal-background' onClick={this.props.btnCallback}/>}
 
             </div>
 
