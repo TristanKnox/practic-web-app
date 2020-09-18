@@ -1,3 +1,30 @@
+#Practic Web App
+To get this jroject up and running
+From withing the project directory run
+
+```npm install```
+
+```cd src```
+
+```npm start```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
